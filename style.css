@@ -862,3 +862,49 @@ footer {
         font-size: 1.8rem;
     }
 }
+
+
+/* --- ESTILOS DO MENU HAMBÚRGUER --- */
+.mobile-menu-btn {
+  display: none;
+  background: transparent;
+  border: none;
+  font-size: 1.8rem;
+  color: #fff;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+/* Regras Responsivas (Celulares e Tablets) */
+@media (max-width: 992px) {
+  .mobile-menu-btn {
+    display: block; /* Mostra o botão hambúrguer no celular */
+  }
+
+  .nav-links {
+    display: none; /* Esconde os links do menu por padrão */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #1a2a3a; /* Ajuste para a cor escura do seu header */
+    flex-direction: column;
+    padding: 1.5rem;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+  }
+
+  .nav-links.active {
+    display: flex; /* Exibe o menu suspenso quando aberto */
+  }
+
+  .nav-links li {
+    margin: 0.8rem 0;
+    text-align: center;
+  }
+
+  /* Oculta botão extra do cabeçalho no celular se necessário */
+  .navbar .header-cta {
+    display: none;
+  }
+}
