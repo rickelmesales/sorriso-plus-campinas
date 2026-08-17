@@ -39,7 +39,7 @@
 
     <!-- Navegação Principal -->
     <nav class="navbar">
-        <div class="container">
+        <div class="container navbar-container">
             <a href="#" class="logo">
                 <div class="logo-icon">
                     <i class="fa-solid fa-tooth"></i>
@@ -49,24 +49,25 @@
                     <span class="tagline">CAMPINAS</span>
                 </div>
             </a>
-            
-            <!-- Botão Hambúrguer Mobile -->
+
+            <!-- Menu expansível (links + botão no mobile) -->
+            <div class="nav-menu" id="nav-menu">
+                <ul class="nav-links">
+                    <li><a href="#tratamentos">Tratamentos</a></li>
+                    <li><a href="#diferenciais">Diferenciais</a></li>
+                    <li><a href="#avaliacoes">Avaliações</a></li>
+                    <li><a href="#corpo-clinico">Dr. Evandro</a></li>
+                    <li><a href="#localizacao">Contato</a></li>
+                </ul>
+                <a href="https://wa.me/5519993489506?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20na%20Sorriso%20Plus." target="_blank" class="btn btn-whatsapp nav-cta">
+                    <i class="fa-brands fa-whatsapp"></i> Agendar Consulta
+                </a>
+            </div>
+
+            <!-- Botão Hambúrguer (alinhado à direita no mobile) -->
             <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Abrir Menu">
                 <i class="fa-solid fa-bars"></i>
             </button>
-
-            <!-- Lista de navegação -->
-            <ul class="nav-links" id="nav-links">
-                <li><a href="#tratamentos">Tratamentos</a></li>
-                <li><a href="#diferenciais">Diferenciais</a></li>
-                <li><a href="#avaliacoes">Avaliações</a></li>
-                <li><a href="#corpo-clinico">Dr. Evandro</a></li>
-                <li><a href="#localizacao">Contato</a></li>
-            </ul>
-
-            <a href="https://wa.me/5519993489506?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20na%20Sorriso%20Plus." target="_blank" class="btn btn-whatsapp header-cta">
-                <i class="fa-brands fa-whatsapp"></i> Agendar Consulta
-            </a>
         </div>
     </nav>
 
@@ -497,13 +498,13 @@
     <!-- Script do Menu Hambúrguer e Rolagem Suave -->
     <script>
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const navLinks = document.getElementById('nav-links');
+        const navMenu = document.getElementById('nav-menu');
         const menuIcon = mobileMenuBtn.querySelector('i');
 
-        // Alterna menu aberto/fechado
+        // Alterna abertura e fechamento do menu no celular
         mobileMenuBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            if (navLinks.classList.contains('active')) {
+            navMenu.classList.toggle('active');
+            if (navMenu.classList.contains('active')) {
                 menuIcon.classList.remove('fa-bars');
                 menuIcon.classList.add('fa-xmark');
             } else {
@@ -512,10 +513,10 @@
             }
         });
 
-        // Fecha o menu ao clicar em qualquer link
-        document.querySelectorAll('.nav-links a').forEach(link => {
+        // Fecha o menu ao clicar em qualquer link da navegação
+        document.querySelectorAll('#nav-menu a').forEach(link => {
             link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
+                navMenu.classList.remove('active');
                 menuIcon.classList.remove('fa-xmark');
                 menuIcon.classList.add('fa-bars');
             });
